@@ -23,7 +23,7 @@ function limpar() {
 // Função para realizar o login
 async function realizarLogin(email, senha) {
   try {
-    const response = await fetch(`http://localhost:8080/usuarios/login`, {
+    const response = await fetch(`http://localhost:8080/login`, {
       method: "POST",
       headers: {
         "Accept": "application/json",

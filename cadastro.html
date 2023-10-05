@@ -51,7 +51,7 @@
                                         <i id="showPassword" class="fas fa-eye-slash" style="cursor: pointer;"></i>
                                     </div>
                                 </div>
-                                <div th:if="${erroEmail != null}" th:text="${erroEmail}" class="alert alert-danger" role="alert"></div>
+                                <div id="mensagemErro" class="alert alert-danger" style="display: none;"></div>
                                 <button class="btn btn-outline-primary btn-user btn-block">
                                     Cadastrar-se
                                 </button>
