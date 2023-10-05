@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  crud_ebook:
+    build:
+      context: .
+      dockerfile: ./crud-ebook/Dockerfile
+    container_name: crud_ebook
+    restart: always
+    ports:
+      - 4200:80
+    volumes:
+      - ./crud-ebook:/usr/share/nginx/html/
