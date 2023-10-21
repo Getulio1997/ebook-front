@@ -1,0 +1,47 @@
+<div th:replace="compartilhado/top"></div>
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">Novo usuário</h1>
+    <p class="mb-4">Cadastro de usuários</p>
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#cadastroModal">
+        Cadastrar
+    </button>
+    <a th:href="@{/administradores}" class="btn btn-outline-secondary" style="margin-left: 5px;">
+        Voltar
+    </a>
+    <div class="modal fade" id="cadastroModal" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 135%;right: 10%;margin-top: 9%;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadastroModalLabel">Novo usuário</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/administradores/criar">
+                        <div class="form-row" style="flex-direction: column;">
+                            <div class="col-md-4 mb-3">
+                                <label for="nome">Seu nome</label>
+                                <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite seu nome" style="
+                                width: 170%;">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" required id="email" name="email" placeholder="Digite seu e-mail" aria-describedby="inputGroupPrepend3" style="width: 170%;">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-3 mb-3">
+                                <label for="senha">Senha</label>
+                                <input type="text" class="form-control" required id="senha" name="senha" placeholder="Digite sua senha" style="width: 230%;">
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-success" type="submit">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:replace="compartilhado/baixo"></div>
