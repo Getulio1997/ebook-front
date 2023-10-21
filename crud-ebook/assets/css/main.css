@@ -120,7 +120,6 @@ button:focus,
 
 .form-check-input:checked {
   background-color: #f7b58c;
-  border-color: #f7b58c1;
 }
 
 select {
@@ -1777,7 +1776,7 @@ nav-item
   z-index: 99;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
-  padding: 0;
+  padding: 10px;
 }
 
 .navbar-area.sticky {
