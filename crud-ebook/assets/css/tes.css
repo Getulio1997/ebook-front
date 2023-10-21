@@ -85,18 +85,10 @@ section.mod-2 {
 
 body {
     background-image: url(/imagens/livraria.jpg);
-<<<<<<< HEAD
-=======
-    overflow: hidden;
->>>>>>> origin
 }
 
 body.ed {
     background-image: url(/imagens/livraria.jpg);
-<<<<<<< HEAD
-=======
-    overflow: hidden;
->>>>>>> origin
 }
 
 .container-fluid {
