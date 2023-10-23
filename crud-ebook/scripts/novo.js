@@ -3,9 +3,9 @@ const nome = document.querySelector("#nome");
 const autor = document.querySelector("#autor");
 const genero = document.querySelector("#genero");
 const ano = document.querySelector("#ano");
+const mensagemErro = document.getElementById("mensagemErro"); // Adicionado
 
-// Adicione um ouvinte de evento para o envio do formulário
-formulario.addEventListener('submit', function (event) {
+formulario.addEventListener('submit', async function (event) {
   event.preventDefault(); // Impedir o envio padrão do formulário
 
   const nomeValue = nome.value.trim();
@@ -13,18 +13,14 @@ formulario.addEventListener('submit', function (event) {
   const generoValue = genero.value.trim();
   const anoValue = ano.value.trim();
 
-  realizarCadastro(nomeValue, autorValue, generoValue, anoValue);
+  if (generoValue !== "Selecione o Gênero") {
+    await realizarCadastro(nomeValue, autorValue, generoValue, anoValue);
+  } else {
+    mensagemErro.textContent = "O campo 'Gênero' não pode estar vazio.";
+    mensagemErro.style.display = "block";
+  }
 });
 
-// Função para limpar os campos de email e senha
-function limpar() {
-  nome.value = "";
-  autor.value = "";
-  genero.value = "";
-  ano.value = "";
-}
-
-// Função para realizar o login
 async function realizarCadastro(nome, autor, genero, ano) {
   try {
     const response = await fetch(`http://localhost:8080/livros`, {
@@ -45,7 +41,7 @@ async function realizarCadastro(nome, autor, genero, ano) {
       console.log("Cadastro realizado com sucesso!");
       window.location.href = "/livros/painelLivros.html";
     } else {
-      mensagemErro.textContent = "cadastro realizado com sucesso!.";
+      mensagemErro.textContent = "Esse nome já está cadastrado!.";
       mensagemErro.style.display = "block";
       console.error("Falha no cadastro");
     }
@@ -53,3 +49,4 @@ async function realizarCadastro(nome, autor, genero, ano) {
     console.error(error);
   }
 }
+

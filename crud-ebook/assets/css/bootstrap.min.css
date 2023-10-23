@@ -339,7 +339,8 @@ tr {
 }
 
 label {
-    display: inline-block
+    display: inline-block;
+    color: black;
 }
 
 button {
