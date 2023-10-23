@@ -27,6 +27,7 @@ function carregarDetalhesDoLivro() {
 }
 
 const salvarAlteracaoButton = document.getElementById('salvarAlteracao');
+
 salvarAlteracaoButton.addEventListener('click', function (event) {
     event.preventDefault(); // Impedir o comportamento padrão do botão
     const nomeValue = document.querySelector('#nome').value.trim();
@@ -36,6 +37,64 @@ salvarAlteracaoButton.addEventListener('click', function (event) {
 
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id'); // Obtenha o ID novamente
+
+    
+    const nomeInput = document.querySelector('#nome');
+    const autorInput = document.querySelector('#autor');
+    const anoInput = document.querySelector('#ano');
+    const generoInput = document.querySelector('#genero');
+    const mensagemErroNome = document.getElementById("mensagemErroNome");
+    const mensagemErroAutor = document.getElementById("mensagemErroAutor");
+    const mensagemErroAno = document.getElementById("mensagemErroAno");
+    const mensagemErroGenero = document.getElementById("mensagemErroGenero");
+    
+    nomeInput.addEventListener('input', function () {
+        const nomeValue = nomeInput.value.trim();
+    
+        if (nomeValue === "") {
+            mensagemErroNome.textContent = "O campo 'Nome' não pode estar vazio.";
+            mensagemErroNome.style.display = "block";
+        }else {
+            mensagemErroNome.textContent = "";
+            mensagemErroNome.style.display = "none";
+        }
+    });
+    
+    autorInput.addEventListener('input', function () {
+        const autorValue = autorInput.value.trim();
+    
+        if (autorValue === "") {
+            mensagemErroAutor.textContent = "O campo 'Autor' não pode estar vazio.";
+            mensagemErroAutor.style.display = "block";
+        } else {
+            mensagemErroAutor.textContent = "";
+            mensagemErroAutor.style.display = "none";
+        }
+    });
+
+    generoInput.addEventListener('input', function () {
+        const generoValue = generoInput.value;
+
+        if (generoValue === "Selecione o Gênero") {
+            mensagemErroGenero.textContent = "O campo 'Gênero' não pode estar vazio.";
+            mensagemErroGenero.style.display = "block";
+        }else {
+            mensagemErroGenero.textContent = "";
+            mensagemErroGenero.style.display = "none";
+            }
+    });
+
+    anoInput.addEventListener('input', function () {
+        const anoValue = anoInput.value.trim();
+    
+        if (anoValue === "") {
+            mensagemErroAno.textContent = "O campo 'Ano' não pode estar vazio.";
+            mensagemErroAno.style.display = "block";
+        } else {
+            mensagemErroAno.textContent = "";
+            mensagemErroAno.style.display = "none";
+        }
+    });
 
     // Passe o 'id' como um parâmetro para a função salvarAlteracoesDoLivro
     salvarAlteracoesDoLivro(id, nomeValue, autorValue, generoValue, anoValue);
@@ -61,6 +120,8 @@ function salvarAlteracoesDoLivro(id, nome, autor, genero, ano) {
                 console.log("Edição realizada com sucesso!");
                 window.location.href = "/livros/painelLivros.html";
             } else {
+                mensagemErroNome.textContent = "Esse nome já está cadastrado!.";
+                mensagemErroNome.style.display = "block";
                 console.error("Falha ao editar");
             }
         })

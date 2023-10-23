@@ -16,28 +16,28 @@
     <link rel="stylesheet" href="/assets/css/tiny-slider.css" />
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/assets/css/tes.css">
+    <link rel="stylesheet" href="/style/tes.css">
 
 </head>
 
 <body>
     <section class="mod">
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin: 80px 0px 0px 340px;">
             <h1 class="h3 mb-2 text-gray-800">Novo livro</h1>
             <p class="mb-4">Cadastro de livros</p>
             <form method="POST" action="#">
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite o nome" style="color: #999;opacity: 0.7;">
+                        <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite o nome">
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="autor">Autor</label>
-                        <input type="text" class="form-control" required id="autor" name="autor" placeholder="Digite o autor" style="color: #999;opacity: 0.7;">
+                        <label class="col-label" for="autor">Autor</label>
+                        <input type="text" class="form-control" required id="autor" name="autor" placeholder="Digite o autor">
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="genero">Gênero</label>
-                        <select class="form-control" required id="genero" name="genero" style="color: #999; opacity: 0.7;">
+                        <label class="col-label" for="genero">Gênero</label>
+                        <select class="form-select" required id="genero" name="genero">
                             <option value="Selecione o Gênero" >Selecione o Gênero</option>
                             <option value="Ficção">Ficção</option>
                             <option value="Aventura">Aventura</option>
@@ -49,15 +49,13 @@
                     </div>
                     
                     <div class="col-md-4 mb-3">
-                        <label for="ano">Ano</label>
-                        <input type="text" class="form-control" required id="ano" name="ano" placeholder="Digite o ano" style="color: #999;opacity: 0.7;">
+                        <label class="col-label" for="ano">Ano</label>
+                        <input type="text" class="form-control" required id="ano" name="ano" placeholder="Digite o ano">
                     </div>
                 </div>
+                <div id="mensagemErro" class="alert alert-danger" style="display: none; width: 34%; margin-top: 12px;"></div>
                 <button class="btn btn-outline-success" type="submit">Cadastrar</button>
             </form>
-            <div class="col-img">
-                <img src="/imagens/livro.jpg" style="border-radius: 2%;margin-left: 3px;">
-            </div>
         </div>
     </section>
     <script src="/scripts/novo.js"></script>
