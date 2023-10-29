@@ -1,0 +1,18 @@
+#cameraFeed {
+    clip-path: circle(74px at 50% 50%);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: none;
+    margin-left: 530px;
+}
+
+#capturedImage {
+    clip-path: circle(74px at 50% 50%);
+    border-radius: 50%;
+    width: 200px;
+    height: 160px;
+    display: none;
+    margin-left: 540px;
+    margin-top: 15px;
+}

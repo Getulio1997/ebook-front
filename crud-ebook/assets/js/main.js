@@ -15,7 +15,7 @@ Author: GrayGrids
         document.querySelector('.preloader').style.display = 'none';
     }
 
-const inputFile = document.querySelector("#picture__input");
+const inputFile = document.querySelector("#picture__input_foto");
 const pictureImage = document.querySelector(".picture__image");
 const pictureImageTxt = "";
 pictureImage.innerHTML = pictureImageTxt;
@@ -27,7 +27,7 @@ inputFile.addEventListener("change", function (e) {
   if (file) {
     const reader = new FileReader();
 
-    reader.addEventListener("load", function (e) {
+    reader.addEventListener("change", function (e) {
       const readerTarget = e.target;
 
       const img = document.createElement("img");
