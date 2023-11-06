@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/style/tes.css">
+    <link rel="stylesheet" href="/style/camera.css">
 
 </head>
 
 <body class="ed">
     <section class="mod-2">   
-        <div class="container-fluid" style="margin: 80px 0px 0px 340px;">
+        <div class="container-fluid" style="margin: 80px 0px 0px 300px;">
             <h1 class="h3 mb-2 text-gray-800">Editar livro</h1>
             <p class="mb-4">Edição de livros</p>
             <form method="POST">
@@ -55,6 +56,32 @@
                         <label for="ano">Ano</label>
                         <input type="text" class="form-control" required id="ano" name="ano" placeholder="Digite o ano">
                         <div id="mensagemErroAno" class="alert alert-danger" style="display: none; width: 100%; margin-top: 6px;"></div>
+                    </div>
+                    <div>
+                        <li class="nav-item ml-auto">
+                            <label class="picture rounded-circle" for="picture__input_foto" style="margin-left: -24%; margin-top: -40%; width: 145px;">
+                                <span class="rounded-circle dd-menu collapsed direita picture__image" href="javascript:void(0)"
+                                    data-bs-toggle="collapse" data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation"> </span>
+                                    <img id="livroImagem" src="" alt="icone de Perfil" style="max-width: 133%;">
+                            </label>
+                            <li class="nav-item" style="color: white;">
+                                <label class="butão">
+                                    <input type="file" name="picture__input_foto" id="picture__input_foto" capture="camera">
+                                    <span>Escolha sua foto de perfil</span>
+                                </label> 
+                                <div style="margin-left: 40%;margin-top: -7%;">
+                                    <video id="cameraFeed" style="display: none; margin-left: -113%; margin-top: -400px; width: 216px;"></video>
+                                    <img id="capturedImage" style="display: none; margin-left: -113%; margin-top: -391px; width: 216px;"></img>
+                                    <button class="btn btn-primary btn-sm" type="button" onclick="startCamera()">
+                                        <i class="bi bi-play-fill"></i> Iniciar Câmera
+                                    </button>
+                                    <button class="btn btn-success btn-sm" type="button" onclick="captureFromCamera()">
+                                        <i class="bi bi-camera-fill"></i> Capturar Imagem
+                                    </button>
+                                </div>     
+                            </li>
+                        </li>                   
                     </div>
                 </div>
                 <div id="mensagemErro" class="alert alert-danger" style="display: none; width: 33%; margin-top: 12px;"></div>

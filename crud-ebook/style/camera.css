@@ -2,9 +2,9 @@
     clip-path: circle(74px at 50% 50%);
     border-radius: 50%;
     width: 200px;
-    height: 200px;
+    height: 180px;
     display: none;
-    margin-left: 530px;
+    margin-left: 15px;
 }
 
 #capturedImage {
@@ -13,6 +13,6 @@
     width: 200px;
     height: 160px;
     display: none;
-    margin-left: 540px;
+    margin-left: 15px;
     margin-top: 15px;
 }

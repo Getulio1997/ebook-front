@@ -89,18 +89,25 @@
                                 </li>
                                 <li class="nav-item ml-auto ">
 
-                                    <label class="picture rounded-circle direita" for="picture__input">
+                                    <label class="picture rounded-circle direita" for="picture__input_foto">
                                         <span class="rounded-circle dd-menu collapsed direita picture__image"
                                             href="javascript:void(0)" data-bs-toggle="collapse" : 60px;;
                                             data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
                                             aria-expanded="false" aria-label="Toggle navigation"> </span>
                                     </label>
 
-                                <li class="nav-item"><label class="butão">
-                                        <input type="file" name="picture__input_foto" id="picture__input_foto">
-                                        <span>Escolha sua foto de perfil</input>
-                                    </label>
-                                </li>
+                                    <!-- <label class="picture rounded-circle direita" for="picture__input">
+                                        <span class="rounded-circle dd-menu collapsed direita picture__image"
+                                            href="javascript:void(0)" data-bs-toggle="collapse" : 60px;;
+                                            data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation"> </span>
+                                    </label> -->
+
+                                    <li class="nav-item"><label class="butão">
+                                            <input type="file" name="picture__input" id="picture__input">
+                                            <span>Escolha sua foto de perfil</input>
+                                        </label>
+                                    </li>
                                 </li>
                                 </ul>
                             </div>
@@ -167,12 +174,6 @@
                         </br>
                     </div>
                 </div>
-            </div>
-            <div>
-                <button class="botão" onclick="startCamera()">Iniciar Câmera</button>
-                <button class="botão" onclick="captureFromCamera()">Capturar Imagem</button>
-                <video id="cameraFeed" autoplay></video>
-                <img id="capturedImage">
             </div>
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 col-md-12 col-12">

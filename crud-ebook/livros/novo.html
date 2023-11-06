@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="/assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/style/tes.css">
+    <link rel="stylesheet" href="/style/camera.css">
 
 </head>
 
 <body>
     <section class="mod">
-        <div class="container-fluid" style="margin: 80px 0px 0px 340px;">
+        <div class="container-fluid" style="margin: 80px 0px 0px 300px;">
             <h1 class="h3 mb-2 text-gray-800">Novo livro</h1>
             <p class="mb-4">Cadastro de livros</p>
             <form method="POST" action="#">
@@ -52,9 +53,29 @@
                         <label class="col-label" for="ano">Ano</label>
                         <input type="text" class="form-control" required id="ano" name="ano" placeholder="Digite o ano">
                     </div>
+                    <div>
+                        <li class="nav-item ml-auto" style="color: aliceblue;">
+                            <li class="nav-item" style="color: aliceblue;">
+                                <label class="butão">
+                                    <input type="file" name="picture__input_foto" id="picture__input_foto" capture="camera">
+                                    <span>Escolha sua foto de perfil</span>
+                                </label> 
+                                <div style="margin-left: 40%;margin-top: -7%;">
+                                    <video id="cameraFeed" style="display: none; margin-left: -113%; margin-top: -400px; width: 216px;"></video>
+                                    <img id="capturedImage" style="display: none; margin-left: -113%; margin-top: -391px; width: 216px;"></img>
+                                    <button class="btn btn-primary btn-sm" type="button" onclick="startCamera()">
+                                        <i class="bi bi-play-fill"></i> Iniciar Câmera
+                                    </button>
+                                    <button class="btn btn-success btn-sm" type="button" onclick="validarCamposECapturarImagem()">
+                                        <i class="bi bi-camera-fill"></i> Capturar Imagem
+                                    </button>
+                                </div>                                                                                         
+                            </li>
+                        </li>                   
+                    </div>
                 </div>
                 <div id="mensagemErro" class="alert alert-danger" style="display: none; width: 34%; margin-top: 12px;"></div>
-                <button class="btn btn-outline-success" type="submit">Cadastrar</button>
+                <button class="btn btn-outline-success" id="cadastrarLivroButton" type="button">Cadastrar</button>
             </form>
         </div>
     </section>
