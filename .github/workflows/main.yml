@@ -22,7 +22,7 @@ jobs:
         tags: getulio1997/ebook:latest
       env:
         DOCKER_USERNAME: getulio1997
-        DOCKER_PASSWORD: dckr_pat_IjhLxm0PUrcO1m7mfTxhfmTUZlo
+        DOCKER_PASSWORD: dckr_pat_BwlU74YLcunoossCtsHTyEcH5nU
 
   deploy:
     runs-on: ubuntu-latest
