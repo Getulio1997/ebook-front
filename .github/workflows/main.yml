@@ -32,12 +32,12 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./crud-ebook/Dockerfile
+        file: crud-ebook/Dockerfile
         push: true
         tags: getulio1997/ebook:latest
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}    
 
   deploy:
     runs-on: ubuntu-latest
