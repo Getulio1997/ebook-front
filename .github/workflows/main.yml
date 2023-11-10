@@ -23,7 +23,7 @@ jobs:
       run: ls -R
 
     - name: Check Dockerfile permissions
-      run: ls -l ./crud-ebook/Dockerfile
+      run: ls -l crud-ebook/Dockerfile
 
     - name: Fix Dockerfile permissions
       run: chmod 644 ./crud-ebook/Dockerfile
@@ -35,7 +35,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./crud-ebook/Dockerfile
+        file: crud-ebook/Dockerfile
         push: true
         tags: getulio1997/ebook:latest
       env:
