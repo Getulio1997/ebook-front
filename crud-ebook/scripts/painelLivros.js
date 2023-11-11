@@ -1,5 +1,5 @@
 function listarLivros() {
-  fetch("http://localhost:8080/livros")
+  fetch("https://ebookback.onrender.com/livros")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Erro ao listar os livros: ${response.status}`);
@@ -64,7 +64,7 @@ function listarLivros() {
       console.error(error.message);
     });
   function excluirLivro(id) {
-    fetch(`http://localhost:8080/livros/${id}`, {
+    fetch(`https://ebookback.onrender.com/livros/${id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",

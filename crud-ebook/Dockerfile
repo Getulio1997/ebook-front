@@ -10,4 +10,3 @@ COPY ./crud-ebook/nginx.conf /etc/nginx/conf.d/
 # Copie a aplicação e defina permissões
 COPY ./crud-ebook /usr/share/nginx/html/
 RUN chown -R nginx:nginx /usr/share/nginx/html/
-

@@ -24,7 +24,7 @@ function limpar() {
 // Função para realizar o login
 async function realizarCadastro(nome, email, senha) {
   try {
-    const response = await fetch(`http://localhost:8080/cadastro`, {
+    const response = await fetch(`https://ebookback.onrender.com/cadastro`, {
       method: "POST",
       headers: {
         "Accept": "application/json",

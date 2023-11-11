@@ -11,7 +11,7 @@ function carregarDetalhesDoLivro() {
   // Certifique-se de que você tem o ID do livro
   if (id) {
     // Agora, você pode fazer uma solicitação para obter os detalhes do livro com esse ID
-    fetch(`http://localhost:8080/livros/${id}`)
+    fetch(`https://ebookback.onrender.com/livros/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -32,7 +32,7 @@ function carregarDetalhesDoLivro() {
         // Verifique se há um ID de imagem
         if (idImagem) {
           // Faça uma solicitação para obter a imagem
-          fetch(`http://localhost:8080/upload/imagem/${idImagem}`)
+          fetch(`https://ebookback.onrender.com/upload/imagem/${idImagem}`)
             .then((response) => {
               if (response.ok) {
                 return response.blob();
@@ -120,7 +120,7 @@ async function enviarImagem(nome, autor, genero, ano, imagemCamera) {
     formData.append("ano", ano);
 
     try {
-      const response = await fetch(`http://localhost:8080/upload/imagem`, {
+      const response = await fetch(`https://ebookback.onrender.com/upload/imagem`, {
         method: "POST",
         body: formData,
       });
@@ -226,7 +226,7 @@ salvarAlteracaoButton.addEventListener("click", function (event) {
 
 function salvarAlteracoesDoLivro(id, nome, autor, genero, ano, idImagem) {
   // Aqui você pode fazer uma solicitação para salvar as alterações no livro com o ID especificado
-  fetch(`http://localhost:8080/livros/${id}`, {
+  fetch(`https://ebookback.onrender.com/livros/${id}`, {
     method: "PUT",
     headers: {
       "Accept": "application/json",

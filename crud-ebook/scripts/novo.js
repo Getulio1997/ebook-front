@@ -68,7 +68,7 @@ async function enviarImagem(nome, autor, genero, ano, imagemCamera) {
     formData.append("ano", ano);
 
     try {
-      const response = await fetch(`http://localhost:8080/upload/imagem`, {
+      const response = await fetch(`https://ebookback.onrender.com/upload/imagem`, {
         method: "POST",
         body: formData,
       });
@@ -147,7 +147,7 @@ async function captureFromCamera(nome, autor, genero, ano) {
 // Função para realizar o cadastro do livro
 async function realizarCadastro(nome, autor, genero, ano, idImagem) {
   try {
-    const response = await fetch(`http://localhost:8080/livros`, {
+    const response = await fetch(`https://ebookback.onrender.com/livros`, {
       method: "POST",
       headers: {
         "Accept": "application/json",

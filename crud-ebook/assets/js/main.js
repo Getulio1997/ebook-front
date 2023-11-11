@@ -15,34 +15,34 @@ Author: GrayGrids
         document.querySelector('.preloader').style.display = 'none';
     }
 
-const inputFile = document.querySelector("#picture__input");
-const pictureImage = document.querySelector(".picture__image");
-const pictureImageTxt = "";
-pictureImage.innerHTML = pictureImageTxt;
+// const inputFile = document.querySelector("#picture__input");
+// const pictureImage = document.querySelector(".picture__image");
+// const pictureImageTxt = "";
+// pictureImage.innerHTML = pictureImageTxt;
 
-inputFile.addEventListener("change", function (e) {
-  const inputTarget = e.target;
-  const file = inputTarget.files[0];
+// inputFile.addEventListener("change", function (e) {
+//   const inputTarget = e.target;
+//   const file = inputTarget.files[0];
 
-  if (file) {
-    const reader = new FileReader();
+//   if (file) {
+//     const reader = new FileReader();
 
-    reader.addEventListener("change", function (e) {
-      const readerTarget = e.target;
+//     reader.addEventListener("change", function (e) {
+//       const readerTarget = e.target;
 
-      const img = document.createElement("img");
-      img.src = readerTarget.result;
-      img.classList.add("picture__img");
+//       const img = document.createElement("img");
+//       img.src = readerTarget.result;
+//       img.classList.add("picture__img");
 
-      pictureImage.innerHTML = "";
-      pictureImage.appendChild(img);
-    });
+//       pictureImage.innerHTML = "";
+//       pictureImage.appendChild(img);
+//     });
 
-    reader.readAsDataURL(file);
-  } else {
-    pictureImage.innerHTML = pictureImageTxt;
-  }
-});
+//     reader.readAsDataURL(file);
+//   } else {
+//     pictureImage.innerHTML = pictureImageTxt;
+//   }
+// });
 
     /*=====================================
     Sticky
@@ -90,30 +90,30 @@ inputFile.addEventListener("change", function (e) {
 	// 	}
 	// };
 
-  function onScroll(event) {
-    var sections = document.querySelectorAll('.page-scroll');
-    var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+//   function onScroll(event) {
+//     var sections = document.querySelectorAll('.page-scroll');
+//     var scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
-    for (var i = 0; i < sections.length; i++) {
-        var currLink = sections[i];
-        var val = currLink.getAttribute('href');
-        var refElement = document.querySelector(val);
-        var scrollTopMinus = scrollPos + 73;
+//     for (var i = 0; i < sections.length; i++) {
+//         var currLink = sections[i];
+//         var val = currLink.getAttribute('href');
+//         var refElement = document.querySelector(val);
+//         var scrollTopMinus = scrollPos + 73;
 
-        if (refElement.offsetTop <= scrollTopMinus && (refElement.offsetTop + refElement.offsetHeight > scrollTopMinus)) {
-            // Remova a classe 'active' de todos os elementos com a classe 'page-scroll'
-            sections.forEach(function (element) {
-                element.classList.remove('active');
-            });
+//         if (refElement.offsetTop <= scrollTopMinus && (refElement.offsetTop + refElement.offsetHeight > scrollTopMinus)) {
+//             // Remova a classe 'active' de todos os elementos com a classe 'page-scroll'
+//             sections.forEach(function (element) {
+//                 element.classList.remove('active');
+//             });
 
-            currLink.classList.add('active');
-        } else {
-            currLink.classList.remove('active');
-        }
-    }
-};
+//             currLink.classList.add('active');
+//         } else {
+//             currLink.classList.remove('active');
+//         }
+//     }
+// };
 
-    window.document.addEventListener('scroll', onScroll);
+    // window.document.addEventListener('scroll', onScroll);
     
     // for menu scroll 
     var pageLink = document.querySelectorAll('.page-scroll');
