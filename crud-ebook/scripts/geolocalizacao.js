@@ -1,79 +1,79 @@
-var geocoder; // this object will handle the position<->address conversion
-var x = document.getElementById("demo");
+var map;
 
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError); // , {maximumAge:60000, timeout:5000, enableHighAccuracy:true}
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
 }
 
 function showPosition(position) {
-  lat = position.coords.latitude;
-  lon = position.coords.longitude;
-  latlon = new google.maps.LatLng(lat, lon);
-  // okay, now we have the position (as a google maps latLng object),
-  // now we send this position to geocoder
-  // @see  https://developers.google.com/maps/documentation/javascript/geocoding
-  geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ latLng: latlon }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      var city = getCity(results[0]);
-      x.innerHTML = "city: " + city;
-    }
-  });
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
 
-  mapholder = document.getElementById("mapholder");
-  var myOptions = {
-    center: latlon,
-    zoom: 14,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    mapTypeControl: false,
-    navigationControlOptions: {
-      style: google.maps.NavigationControlStyle.SMALL,
-    },
-  };
-  var map = new google.maps.Map(
-    document.getElementById("mapholder"),
-    myOptions
-  );
-  var marker = new google.maps.Marker({
-    position: latlon,
-    map: map,
-    title: "You are here!",
-  });
+    var latlng = new google.maps.LatLng(lat, lon);
+
+    // Inicializar o mapa
+    var mapOptions = {
+        center: latlng,
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL,
+        },
+    };
+
+    map = new google.maps.Map(document.getElementById("mapholder"), mapOptions);
+
+    // Adicionar um marcador para a posição atual
+    var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: "Você está aqui!",
+    });
+
+    // Reverse geocoding para obter a cidade
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ location: latlng }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                var city = getCity(results[0]);
+                alert("Cidade: " + city);
+            }
+        } 
+        // else {
+        //     alert("Geocoding falhou devido a: " + status);
+        // }
+    });
 }
 
 function showError(error) {
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation.";
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable.";
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out.";
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred.";
-      break;
-  }
-}
-// more info, see my post on http://stackoverflow.com/questions/27203977/google-api-address-components
-function getCity(geocodeResponse) {
-  var type = "locality"; //the function will look through the results and find a component with type = 'locatily'.  Then it returns that
-  for (var i = 0; i < geocodeResponse.address_components.length; i++) {
-    for (
-      var j = 0;
-      j < geocodeResponse.address_components[i].types.length;
-      j++
-    ) {
-      if (geocodeResponse.address_components[i].types[j] == type) {
-        return geocodeResponse.address_components[i].long_name;
-      }
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("O usuário negou a solicitação de Geolocalização.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Informações de localização estão indisponíveis.");
+            break;
+        case error.TIMEOUT:
+            alert("A solicitação para obter a localização do usuário expirou.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("Ocorreu um erro desconhecido ao obter a localização do usuário.");
+            break;
     }
-  }
-  return "";
+}
+
+function getCity(geocodeResponse) {
+    var type = "locality";
+    for (var i = 0; i < geocodeResponse.address_components.length; i++) {
+        for (var j = 0; j < geocodeResponse.address_components[i].types.length; j++) {
+            if (geocodeResponse.address_components[i].types[j] == type) {
+                return geocodeResponse.address_components[i].long_name;
+            }
+        }
+    }
+    return "";
 }
