@@ -124,7 +124,7 @@ async function captureFromCamera(nome, autor, genero, ano) {
 
   try {
     const photoBlob = await imageCapture.takePhoto();
-    const imagemCamera = new File([photoBlob], "captured-image.png", { type: photoBlob.type });
+    imagemCamera = new File([photoBlob], "captured-image.jpg", { type: photoBlob.type });
 
     console.log("Tipo MIME da imagem:", imagemCamera.type);
 
