@@ -7,6 +7,11 @@ Para chamar as requisições dos endpoints do back-end.
 # Docker.
 Com containers e imagens do projeto, utilizando o servidor nginx.
 
+# Deploy do site.
+Para aplicação back-end.
+
+# Site: https://ebooks-1kip.onrender.com
+
 <img src="/imagens/html css e js.png"> 
 
 <img src="/imagens/docker.png"> 
