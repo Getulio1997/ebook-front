@@ -8,7 +8,7 @@ Para chamar as requisições dos endpoints do back-end.
 Com containers e imagens do projeto, utilizando o servidor nginx.
 
 # Deploy do site.
-Para aplicação back-end.
+Para aplicação front-end.
 
 # Site: https://ebooks-1kip.onrender.com
 
